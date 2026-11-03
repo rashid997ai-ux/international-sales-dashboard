@@ -207,7 +207,7 @@ fig_month.update_layout(
     paper_bgcolor="rgba(0,0,0,0)",
     plot_bgcolor="rgba(0,0,0,0)"
 )
-st.plotly_chart(fig_month, use_container_width=True)
+st.plotly_chart(fig_month, use_container_width=True, config={"staticPlot": True})
 
 left, right = st.columns(2)
 
@@ -226,7 +226,7 @@ with left:
     )
     fig_city.update_layout(showlegend=False, paper_bgcolor="rgba(0,0,0,0)",
                            plot_bgcolor="rgba(0,0,0,0)")
-    st.plotly_chart(fig_city, use_container_width=True)
+    st.plotly_chart(fig_city, use_container_width=True, config={"staticPlot": True})
 
 with right:
     category_sales = filtered_df.groupby("Category", as_index=False)["Sales"].sum()
@@ -240,7 +240,7 @@ with right:
         color_discrete_sequence=["#8B5CF6", "#22D3EE", "#F59E0B"]
     )
     fig_category.update_layout(paper_bgcolor="rgba(0,0,0,0)")
-    st.plotly_chart(fig_category, use_container_width=True)
+    st.plotly_chart(fig_category, use_container_width=True, config={"staticPlot": True})
 
 # ---------- DATA TABLE ----------
 st.markdown("---")
@@ -270,7 +270,7 @@ fig_top_products.update_layout(
     coloraxis_showscale=False
 )
 
-st.plotly_chart(fig_top_products, use_container_width=True)
+st.plotly_chart(fig_top_products, use_container_width=True, config={"staticPlot": True})
 st.markdown("## 📋 Sales Transaction Details")
 csv_data = filtered_df.to_csv(index=False).encode("utf-8")
 
